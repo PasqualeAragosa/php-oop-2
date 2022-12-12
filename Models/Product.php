@@ -11,20 +11,13 @@
  */
 class Product
 {
-    public $name;
-    public $price;
-    public $descrption;
-    public $categories;
-    public $brand;
-    public $type;
-
     public function __construct(
-        String $name,
-        String $descrption,
-        String $price,
-        Category $categories,
-        Type $type,
-        String $brand
+        public String $name,
+        public String $descrption,
+        public String $price,
+        public Category $categories,
+        public Type $type,
+        public String $brand
     ) {
         $this->name = $name;
         $this->price = $price;

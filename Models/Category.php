@@ -2,9 +2,7 @@
 
 class Category
 {
-    public $name;
-
-    public function __construct($name)
+    public function __construct(public $name)
     {
         $this->name = $name;
     }

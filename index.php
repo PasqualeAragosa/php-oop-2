@@ -13,11 +13,15 @@ require __DIR__ . '/Models/Product.php';
 require __DIR__ . '/Models/Category.php';
 require __DIR__ . '/Models/Type.php';
 
-$gomitolo = new Product('Gomitolo', 'Gomitolo di lana pastello, 100% cotone, 10 colori pastello, gomitoli da 29 m, per lavori a maglia e uncinetto e per piccoli progetti di bricolage, Confezione da 10 x 29m', '9,99', new Category('Cat'), new Type('Giocattolo'), 'Lana Del Rey & Co.');
+$products = [
 
-$ball = new Product('Palla', 'Palla per Cani con Funzione di Cura Dentale nubi per Cani Giocattolo in Gomma Naturale - Robusta Palla Giocattolo per Cani Grandi e Piccoli - Giocattolo da Masticare per Tratta Ø 7cm', '12,99', new Category('Dog'), new Type('Giocattolo'), 'Dog-eBall');
+    $gomitolo = new Product('Gomitolo', 'Gomitolo di lana pastello, 100% cotone, 10 colori pastello, gomitoli da 29 m, per lavori a maglia e uncinetto e per piccoli progetti di bricolage, Confezione da 10 x 29m', '9,99', new Category('Cat'), new Type('Giocattolo'), 'Lana Del Rey & Co.'),
 
-$bowl = new Product('Ciotola', 'Ciotola per Cani e Gatti in Acciaio Inossidabile,Ciotola Inclinabile per Gatti e Cuccioli, Ciotola per Animali Antiscivolo', '9,99', new Category('Cat'), new Type('Contenitore'), 'PetKit');
+    $ball = new Product('Palla', 'Palla per Cani con Funzione di Cura Dentale nubi per Cani Giocattolo in Gomma Naturale - Robusta Palla Giocattolo per Cani Grandi e Piccoli - Giocattolo da Masticare per Tratta Ø 7cm', '12,99', new Category('Dog'), new Type('Giocattolo'), 'Dog-eBall'),
+
+    $bowl = new Product('Ciotola', 'Ciotola per Cani e Gatti in Acciaio Inossidabile,Ciotola Inclinabile per Gatti e Cuccioli, Ciotola per Animali Antiscivolo', '9,99', new Category('Cat'), new Type('Contenitore'), 'PetKit'),
+];
+
 
 ?>
 
@@ -79,24 +83,26 @@ $bowl = new Product('Ciotola', 'Ciotola per Cani e Gatti in Acciaio Inossidabile
         <div class="wrapper my-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-3">
-                        <div class="card" style="width: 18rem;">
-                            <img src="./assets/img/gomitolo.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"><?= $gomitolo->name ?></h5>
-                                <p class="card-text">
-                                    <?= $gomitolo->descrption ?>
-                                </p>
+                    <?php foreach ($products as $product) : ?>
+                        <div class="col-3">
+                            <div class="card" style="width: 18rem;">
+                                <img src="./assets/img/Gomitolo.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $product->name ?></h5>
+                                    <p class="card-text">
+                                        <?= $product->descrption ?>
+                                    </p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">€ <?= $product->price ?></li>
+                                    <li class="list-group-item"><?= $product->brand ?></li>
+                                    <li class="list-group-item"><?= $product->categories->get_name() ?></li>
+                                    <li class="list-group-item"><?= $product->type->get_name() ?></li>
+                                </ul>
                             </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">€ <?= $gomitolo->price ?></li>
-                                <li class="list-group-item"><?= $gomitolo->brand ?></li>
-                                <li class="list-group-item"><?= $gomitolo->categories->get_name() ?></li>
-                                <li class="list-group-item"><?= $gomitolo->type->get_name() ?></li>
-                            </ul>
                         </div>
-                    </div>
-                    <!-- /.col -->
+                        <!-- /.col -->
+                    <?php endforeach; ?>
                 </div>
                 <!-- /.row -->
             </div>
