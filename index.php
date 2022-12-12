@@ -13,6 +13,12 @@ require __DIR__ . '/Models/Product.php';
 require __DIR__ . '/Models/Category.php';
 require __DIR__ . '/Models/Type.php';
 
+$gomitolo = new Product('Gomitolo', 'Gomitolo di lana pastello, 100% cotone, 10 colori pastello, gomitoli da 29 m, per lavori a maglia e uncinetto e per piccoli progetti di bricolage, Confezione da 10 x 29m', '9,99', new Category('Cat'), new Type('Giocattolo'), 'Lana Del Rey & Co.');
+
+$ball = new Product('Palla', 'Palla per Cani con Funzione di Cura Dentale nubi per Cani Giocattolo in Gomma Naturale - Robusta Palla Giocattolo per Cani Grandi e Piccoli - Giocattolo da Masticare per Tratta Ø 7cm', '12,99', new Category('Dog'), new Type('Giocattolo'), 'Dog-eBall');
+
+$bowl = new Product('Ciotola', 'Ciotola per Cani e Gatti in Acciaio Inossidabile,Ciotola Inclinabile per Gatti e Cuccioli, Ciotola per Animali Antiscivolo', '9,99', new Category('Cat'), new Type('Contenitore'), 'PetKit');
+
 ?>
 
 <!DOCTYPE html>
@@ -70,25 +76,24 @@ require __DIR__ . '/Models/Type.php';
     </header>
 
     <main>
-        <div class="wrapper">
+        <div class="wrapper my-5">
             <div class="container">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-3">
                         <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
+                            <img src="./assets/img/gomitolo.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <h5 class="card-title"><?= $gomitolo->name ?></h5>
+                                <p class="card-text">
+                                    <?= $gomitolo->descrption ?>
+                                </p>
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
+                                <li class="list-group-item">€ <?= $gomitolo->price ?></li>
+                                <li class="list-group-item"><?= $gomitolo->brand ?></li>
+                                <li class="list-group-item"><?= $gomitolo->categories->get_name() ?></li>
+                                <li class="list-group-item"><?= $gomitolo->type->get_name() ?></li>
                             </ul>
-                            <div class="card-body">
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
-                            </div>
                         </div>
                     </div>
                     <!-- /.col -->

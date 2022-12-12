@@ -4,7 +4,7 @@
  * class Product
  * @param String name
  * @param String description
- * @param Integer price
+ * @param String price
  * @param Category categories
  * @param Type type
  * @param String brand
@@ -21,7 +21,7 @@ class Product
     public function __construct(
         String $name,
         String $descrption,
-        int $price,
+        String $price,
         Category $categories,
         Type $type,
         String $brand
